@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package listaencadeada;
+package Filaencadeada;
 
 /**
  *
@@ -31,20 +31,23 @@ public class ListaEncadeada {
         inicio.setProximo(null);
     }
 
-    public void enfileirar(NoEncadeada valor) {
-        if ( eVazia() ){
-            inicio = fim = valor;
-        }
-        else{
-         valor.proximo = inicio;
-            inicio = valor;
-        }
+    public NoEncadeada enfileirar(int valor) {
+        NoEncadeada elemento = new NoEncadeada(valor, null);
+        elemento.setProximo(inicio.getProximo());
+        inicio.setProximo(elemento);
         quantidade++;
+        return elemento;
     }
 
     NoEncadeada desenfileirar() {
-        return null;
-
+        if (eVazia()) {
+            System.out.println("Pilha vazia, não posso retirar elemento desejado");
+            return null;
+        } else {
+            NoEncadeada aux = inicio.getProximo();
+            inicio.setProximo(inicio.getProximo().getProximo());
+            return aux;
+        }
     }
 
     int pegarInicio() {
