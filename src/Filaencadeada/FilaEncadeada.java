@@ -9,14 +9,14 @@ package Filaencadeada;
  *
  * @author Domingos Neto
  */
-public class ListaEncadeada {
+public class FilaEncadeada {
 
     private int quantidade = 0;
     private NoEncadeada inicio;
     private NoEncadeada fim;
 
     void criarFila() {
-
+      inicio = new NoEncadeada(-1, null);
     }
     
     public boolean eVazia() {
